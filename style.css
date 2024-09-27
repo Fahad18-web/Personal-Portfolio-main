@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Syne", sans-serif;
+    font-weight: 700;
+}
+
+:root {
+    --hue: 220; /* Adjust the hue value as needed */
+    --bg-color: hsl(var(--hue), 40%, 16%);
+    --text-color: hsl(var(--hue), 30%, 80%); /* Light gray for text */
+}
+
+.navbar {
+    padding: 8px 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-color);
+}
+
+.logo {
+    font-size: 1.7rem;
+    padding-left: 10px; 
+    color: #bdc7db;
+}
+
+.nav-link {
+    color: white;
+    padding: 10px 15px; 
+    margin: 0 5px; /* Add margin between nav items for spacing */
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #0056b3; /* Color of the line */
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+.navbar-toggler {
+    border: none; /* Removes the border around the hamburger menu */
+}
+
+.navbar-toggler:focus {
+    outline: none; /* Removes the focus outline around the toggler */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' d='M5 7h20M5 15h20M5 23h20'/%3E%3C/svg%3E"); /* Custom SVG for white lines */
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#home {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(https://th.bing.com/th/id/OIG3.d9MlGMH.mNx00NhOYNin?w=270&h=270&c=6&r=0&o=5&dpr=1.5&pid=ImgGn);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.head{
+    font-size: 1.2vw;
+    font-weight: 700;
+    margin-bottom: 60px;
+    color: rgb(241, 237, 237);
+    text-align: center;
+}
+
+#home p {
+    font-size: 1.2rem;
+    color: #555;
+}
+.animated-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1; /* Ensure the button content is above the background */
+}
+
+.animated-btn:hover {
+    box-shadow: 0 0 15px rgb(19, 253, 117);
+    transform: scale(1.1);
+}
+
+.animated-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: #2866a4;
+    transition: all 0.6s ease;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    z-index: 0; /* Ensure the background is behind the button content */
+}
+
+.animated-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.animated-btn .btn-text {
+    position: relative;
+    z-index: 2; /* Ensures text stays on top of background */
+}
+
+#about{
+    min-height: 100vh;
+    background-color: #58718a;
+    color: #bcdada;
+    
+}
+
+#skills {
+    padding: 80px 0;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+}
+
+#skills h2 {
+    margin-bottom: 40px;
+}
+.skill-image, .tool-image {
+    width: 85px;
+    height: auto;
+}
+
+.skill-item, .tool-item {
+    background-color: rgb(11, 32, 32);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(9, 136, 73, 0.1);
+}
+
+.skill-item:hover, .tool-item:hover {
+    background-color: #58718a;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.container h2 {
+    font-weight: bold;
+}
+
+#projects {
+    min-height: 100vh;
+}
+.row.g-4 {
+    perspective: 1000px; /* Adds a 3D effect */
+}
+
+/* Default card styling */
+.same-size-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease; /* Smoother animation */
+}
+
+/* Zoom and depth effect based on screen size */
+.same-size-card:hover {
+    transform: scale(1.05); /* Reduced zoom for hovered cards */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Adjusted shadow for less intensity */
+    z-index: 10; /* Bring hovered card on top */
+}
+
+/* Non-hovered cards move slightly back and become transparent */
+.row.g-4:hover .same-size-card:not(:hover) {
+    transform: scale(0.9) rotateY(-5deg); /* Reduced shrinking and rotation */
+    opacity: 0.7; /* Slightly transparent non-hovered cards */
+    z-index: 1; /* Ensure they stay behind */
+}
+
+
+.social-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+a:hover {
+    color: #f9d342 !important; /* Gold color on hover */
+}
+
+#contact{
+    background-color: var(--bg-color);
+}
